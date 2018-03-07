@@ -12,9 +12,9 @@ export class OfertasService {
     })
 
   }
-  public getOfertasPorId(id: any): Promise<Oferta>{
+  public getOfertasPorId(id: number): Promise<Oferta>{
     return this.http.get('http://localhost:3000/ofertas?id=' + id).toPromise().then((response:any) => {
-      return response.json();
+      return response.json().shift();
     })
 
   }
