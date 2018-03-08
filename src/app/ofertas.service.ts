@@ -1,27 +1,31 @@
 import { Oferta } from "./shared/oferta.model";
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
+import {URL_API} from "./app.api";
 import "rxjs/add/operator/toPromise";
 
 @Injectable()
 export class OfertasService {
+
+
+
   constructor(private http: Http) { }
   public getOfertasPorCategoria(categoria: string) : Promise<Array<Oferta>>{
-    return this.http.get('http://localhost:3000/ofertas?categoria=' + categoria).toPromise().then((response:any) => {
+    return this.http.get(URL_API + '?categoria=' + categoria).toPromise().then((response:any) => {
       return response.json().filter((item) => item.destaque == true);
     })
 
   }
   public getOfertasPorId(id: number): Promise<Oferta>{
-    return this.http.get('http://localhost:3000/ofertas?id=' + id).toPromise().then((response:any) => {
+    return this.http.get(URL_API + '?id=' + id).toPromise().then((response:any) => {
       return response.json().shift();
     })
 
   }
   public getOfertas(): Promise<Array<Oferta>> {
     //Efetuar uma requisição HTTP
-    let url = "http://localhost:3000/ofertas";
-    return this.http.get(url).toPromise().then((response: any) => {
+
+    return this.http.get(URL_API).toPromise().then((response: any) => {
       return response.json().filter((item) =>  item.destaque == true);
     })
     //RETORNAR UMA PROMESSA
