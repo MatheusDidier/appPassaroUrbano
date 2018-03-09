@@ -5,6 +5,8 @@ import {URL_API} from "./app.api";
 import {URL_COMO_USAR} from "./app.api";
 import {URL_ONDE_FICA} from "./app.api";
 import "rxjs/add/operator/toPromise";
+import "rxjs/add/operator/map";
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class OfertasService {
@@ -43,6 +45,51 @@ export class OfertasService {
     })
     //RETORNAR UMA PROMESSA
   }
+
+
+  public pesquisaOfertas(termo: string) : Observable<Array<Oferta>>{
+    return this.http.get(URL_API + "?descricao_ofertas=" + termo).map((resposta: any) => {
+      return resposta.json();
+    });
+    
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // public getOfertas2(): Promise<Array<Oferta>> {
   //   return new Promise((resolve, reject) => {
   //     //ALgum tipo de processamento que ao finalizar chama a função resolved ou a rejected, dependendo da situação

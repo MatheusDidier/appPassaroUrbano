@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Oferta} from "../shared/oferta.model";
-import {OfertasService} from "../ofertas.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Oferta } from "../shared/oferta.model";
+import { OfertasService } from "../ofertas.service";
+
 
 @Component({
   selector: 'app-oferta',
@@ -9,19 +10,43 @@ import {OfertasService} from "../ofertas.service";
   styleUrls: ['./oferta.component.css'],
   providers: [OfertasService]
 })
-export class OfertaComponent implements OnInit {
+export class OfertaComponent implements OnInit, OnDestroy {
 
-  public oferta:Oferta;
-  constructor(private route: ActivatedRoute, private ofertasService: OfertasService) {}
+ 
+  public oferta: Oferta;
+
+
+  constructor(private route: ActivatedRoute, private ofertasService: OfertasService) { }
+  ngOnDestroy(): void {
+
+  }
 
   ngOnInit() {
     this.route.params.subscribe((parametro: any) => console.log(parametro));
 
-    this.ofertasService.getOfertasPorId(this.route.snapshot.params["id"]).then((oferta:Oferta) => {
+    this.ofertasService.getOfertasPorId(this.route.snapshot.params["id"]).then((oferta: Oferta) => {
       this.oferta = oferta;
       console.log(oferta);
     });
+      
+
+    // this.route.params.subscribe((parametro: any) => {
+    //   console.log(parametro);
+    // }, (erro: any) =>{
+    //   console.log(erro);
+    // }, () => {
+    //   console.log("PROCESSAMENTO CONCLUIDO!");
+    // })
+
+    // let tempo = Observable.interval(2000);
+
+    // tempo.subscribe((intervalo: number) =>  {
+    //   console.log(intervalo);
+    // })
+
+
+
+
 
   }
-
 }
