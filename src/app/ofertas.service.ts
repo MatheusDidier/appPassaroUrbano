@@ -1,12 +1,13 @@
+import { Http, Response} from "@angular/http";
 import { Oferta } from "./shared/oferta.model";
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
 import {URL_API} from "./app.api";
 import {URL_COMO_USAR} from "./app.api";
 import {URL_ONDE_FICA} from "./app.api";
+import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/toPromise";
 import "rxjs/add/operator/map";
-import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/retry";
 
 @Injectable()
 export class OfertasService {
@@ -15,24 +16,24 @@ export class OfertasService {
 
   constructor(private http: Http) { }
   public getOfertasPorCategoria(categoria: string) : Promise<Array<Oferta>>{
-    return this.http.get(URL_API + '?categoria=' + categoria).toPromise().then((response:any) => {
+    return this.http.get(URL_API + '?categoria=' + categoria).toPromise().then((response:Response) => {
       return response.json().filter((item) => item.destaque == true);
     })
 
   }
   public getOfertasPorId(id: number): Promise<Oferta>{
-    return this.http.get(URL_API + '?id=' + id).toPromise().then((response:any) => {
+    return this.http.get(URL_API + '?id=' + id).toPromise().then((response:Response) => {
       return response.json().shift();
     })
   }
 
   public getComoUsarPorId(id: number): Promise<Object>{
-    return this.http.get(URL_COMO_USAR + "?id=" + id).toPromise().then((response: any) => {
+    return this.http.get(URL_COMO_USAR + "?id=" + id).toPromise().then((response: Response) => {
       return response.json().shift().descricao;
     })
   }
   public getOndeFicaPorId(id: number): Promise<Object>{
-    return this.http.get(URL_ONDE_FICA).toPromise().then((response: any) => {
+    return this.http.get(URL_ONDE_FICA).toPromise().then((response: Response) => {
       return response.json().shift().descricao;
     })
   }
@@ -40,7 +41,7 @@ export class OfertasService {
   public getOfertas(): Promise<Array<Oferta>> {
     //Efetuar uma requisição HTTP
 
-    return this.http.get(URL_API).toPromise().then((response: any) => {
+    return this.http.get(URL_API).toPromise().then((response: Response) => {
       return response.json().filter((item) =>  item.destaque == true);
     })
     //RETORNAR UMA PROMESSA
@@ -48,7 +49,7 @@ export class OfertasService {
 
 
   public pesquisaOfertas(termo: string) : Observable<Array<Oferta>>{
-    return this.http.get(URL_API + "?descricao_ofertas=" + termo).map((resposta: any) => {
+    return this.http.get(URL_API + "?descricao_oferta_like=" + termo).retry(10).map((resposta: Response) => {
       return resposta.json();
     });
     
