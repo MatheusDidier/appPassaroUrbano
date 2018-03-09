@@ -15,9 +15,9 @@
         </div>
 
         <div class="thumbnails">
-          <img [src]="oferta.imagens[1].url" />
-          <img [src]="oferta.imagens[2].url" />
-          <img [src]="oferta.imagens[3].url" />
+          <img [src]="oferta.imagens[0].url" />
+          <img [src]="oferta.imagens[0].url" />
+          <img [src]="oferta.imagens[0].url" />
         </div>
       </div>
 
@@ -31,7 +31,7 @@
 
         <div class="row">
           <div class="col text-center">
-            <h1>R$ {{oferta.valor.toFixed(2)}}</h1>
+            <h1>{{oferta.valor | currency:'BRL':'true'}}</h1>
           </div>
         </div>
 

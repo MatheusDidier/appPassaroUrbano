@@ -10,8 +10,8 @@
         <div class="col-md-6">
           <input type="text" class="form-control" placeholder="Pesquise por ofertas" (input)="pesquisa(termoDaPesquisa.value)" #termoDaPesquisa
           />
-          <ul class="list-group" style="position: absolute;">
-            <li class="list-group-item" style="cursor: pointer;" [routerLink]="['/oferta', oferta.id]" *ngFor="let oferta of ofertas2"><img src="{{oferta.imagens[0].url}}" style="max-width: 70px; max-height: 80px;" class="float-left img-fluid rounded" /> <span class="pull-right"> {{oferta.titulo}}</span></li>
+          <ul class="list-group" style="position: absolute;z-index: 999 ">
+            <li class="list-group-item" (click)="limpaPesquisa()" style="cursor: pointer;"  [routerLink]="['/oferta', oferta.id]" *ngFor="let oferta of ofertas | async"><img src="{{oferta.imagens[0].url}}" style="max-width: 70px; max-height: 80px;" class="float-left img-fluid rounded" /> <span class="pull-right"> {{oferta.titulo | descricaoReduzida : 15 | uppercase}}</span></li>
           </ul>
 
         </div>
