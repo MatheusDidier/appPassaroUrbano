@@ -1,7 +1,9 @@
 .menu {
     background: #006ACB
 }
-
+.navbar{
+    background-color: white;
+}
 .nav-link {
     color: #C1E4FF
 }
