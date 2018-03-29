@@ -48,6 +48,127 @@
       "complemento": "TESTESTE",
       "formaPagamento": "dinheiro",
       "id": 7
+    },
+    {
+      "endereco": "testezst",
+      "numero": "231312",
+      "complemento": "3213123",
+      "formaPagamento": "debito",
+      "id": 8
+    },
+    {
+      "endereco": "testezst",
+      "numero": "231312",
+      "complemento": "3213123",
+      "formaPagamento": "debito",
+      "id": 9
+    },
+    {
+      "endereco": "TESTE",
+      "numero": "123",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 10
+    },
+    {
+      "endereco": "TESTE",
+      "numero": "321",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 11
+    },
+    {
+      "endereco": "TESTANDO",
+      "numero": "355",
+      "complemento": "NOVO",
+      "formaPagamento": "dinheiro",
+      "id": 12
+    },
+    {
+      "endereco": "Opa",
+      "numero": "355",
+      "complemento": "Opa",
+      "formaPagamento": "dinheiro",
+      "itemCarrinho": [
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "title": "Estância das águas",
+          "descricao": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 1
+        },
+        {
+          "id": 2,
+          "img": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "title": "Cozinha Mexicana",
+          "descricao": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "quantidade": 1
+        }
+      ],
+      "id": 13
+    },
+    {
+      "endereco": "TESTE",
+      "numero": "3213",
+      "complemento": "TEST",
+      "formaPagamento": "dinheiro",
+      "itemCarrinho": [
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "title": "Estância das águas",
+          "descricao": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 2
+        }
+      ],
+      "id": 14
+    },
+    {
+      "endereco": "TESTE",
+      "numero": "321",
+      "complemento": "TESTE",
+      "formaPagamento": "dinheiro",
+      "itemCarrinho": [
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "title": "Estância das águas",
+          "descricao": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 1
+        }
+      ],
+      "id": 15
+    },
+    {
+      "endereco": "TESTE",
+      "numero": "321",
+      "complemento": "TESTE",
+      "formaPagamento": "dinheiro",
+      "itemCarrinho": [
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "title": "Estância das águas",
+          "descricao": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 1
+        }
+      ],
+      "id": 16
     }
   ],
   "ofertas": [
